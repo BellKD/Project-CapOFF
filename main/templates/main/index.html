@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Лента брендов -->
+<br><br><br>
+<div class="brand-marquee py-4 mt-5">
+    <div class="marquee d-flex align-items-center">
+        {% for brand in brands %}
+        {% endfor %}
+        {% for brand in brands %}
+            <div class="mx-5">
+                <img src="{{ brand.logo.url }}" alt="{{ brand.title }}" style="height:150px;">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Блок Бестселлеры -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold">Бестселлеры</h4>
+        <a href="{% url 'bestsellers' %}" class="fw-bold text-dark">Смотреть все</a>
+    </div>
+
+    <div id="bestsellerCarousel" class="carousel slide" data-bs-interval="false">
+        <div class="carousel-inner">
+            {% for product in bestsellers %}
+                {% if forloop.counter0|divisibleby:5 %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="d-flex justify-content-start gap-3">
+                {% endif %}
+
+                <a href="{% url 'product_detail' product.id %}" class="text-decoration-none text-dark">
+                    <div class="card product-card">
+                        <img src="{{ product.cover.url }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">{{ product.title }}</h6>
+                            <p class="fw-bold">${{ product.price }}</p>
+                        </div>
+                    </div>
+                </a>
+
+                {% if forloop.counter|divisibleby:5 or forloop.last %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#bestsellerCarousel" data-bs-slide="prev">
+            <span aria-hidden="true">←</span>
+        </button>
+        <button class="carousel-control-next custom-next" type="button" data-bs-target="#bestsellerCarousel" data-bs-slide="next">
+            <span aria-hidden="true">→</span>
+        </button>
+    </div>
+</div>
+
+
+
+
+<!-- Блок Акции -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold">Акции</h4>
+        <a href="{% url 'sales' %}" class="fw-bold text-dark">Смотреть все</a>
+    </div>
+
+    <div id="salesCarousel" class="carousel slide" data-bs-interval="false">
+        <div class="carousel-inner">
+            {% for product in sales %}
+                {% if forloop.counter0|divisibleby:5 %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="d-flex justify-content-start gap-3">
+                {% endif %}
+
+                <a href="{% url 'product_detail' product.id %}" class="text-decoration-none text-dark">
+                    <div class="card product-card">
+                        <img src="{{ product.cover.url }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">{{ product.title }}</h6>
+
+                            {% if product.discount_price %}
+                                <small class="text-muted text-decoration-line-through">${{ product.price }}</small><br>
+                                <span class="fw-bold text-danger">${{ product.discount_price }}</span>
+                            {% else %}
+                                <p class="fw-bold">${{ product.price }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+
+                {% if forloop.counter|divisibleby:5 or forloop.last %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#salesCarousel" data-bs-slide="prev">
+            <span aria-hidden="true">←</span>
+        </button>
+        <button class="carousel-control-next custom-next" type="button" data-bs-target="#salesCarousel" data-bs-slide="next">
+            <span aria-hidden="true">→</span>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+<style>
+/* Бренды бегущая лента */
+.brand-marquee {
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    padding: 90px 0;
+}
+.marquee {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+}
+.marquee img {
+    height: 300px;
+    margin: 0 30px;
+    object-fit: contain;
+}
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Карточки товаров */
+.product-card {
+    width: 240px;        /* ширина карточки */
+    min-height: 320px;   /* одинаковая высота */
+    margin: 0 5px;       /* регулируемый зазор */
+}
+.product-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Кастомные стрелки */
+.custom-prev, .custom-next {
+    width: auto;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+.custom-prev { left: -60px; }
+.custom-next { right: -60px; }
+
+.carousel-control-prev.custom-prev,
+.carousel-control-next.custom-next {
+    opacity: 1 !important;   /* всегда видимы */
+    color: black !important; /* цвет стрелок */
+}
+
+</style>
+
+
+<br><br><br><br>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Фото товара -->
+        <div class="col-md-6 text-center">
+            <img src="{{ product.cover.url }}"
+                  alt="{{ product.title }}"
+                  style="width: 100%; max-width: 500px; height: auto; object-fit: contain;">
+
+        </div>
+
+        <!-- Описание товара -->
+        <div class="col-md-6 d-flex flex-column justify-content-start">
+            <h2 class="fw-bold">{{ product.title }}</h2>
+
+            {% if product.discount_price %}
+                <p class="text-muted text-decoration-line-through">${{ product.price }}</p>
+                <p class="fw-bold h4 text-danger">${{ product.discount_price }}</p>
+            {% else %}
+            <br><br>
+                <p class="fw-bold h4">${{ product.price }}</p>
+            {% endif %}
+
+            <p class="mt-2">{{ product.description }}</p>
+
+            <!-- Размеры -->
+            <div class="mt-4">
+                <h6 class="fw-bold">Размеры</h6>
+                <div>
+                    <button class="btn btn-outline-dark btn-sm m-1">S</button>
+                    <button class="btn btn-outline-dark btn-sm m-1">M</button>
+                    <button class="btn btn-outline-dark btn-sm m-1">L</button>
+                </div>
+            </div>
+
+            <!-- Кнопка -->
+            <div class="mt-4">
+                <button class="btn btn-dark fw-bold px-4 py-2">Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container mt-5 mb-5">
+  <h5 class="fw-bold mb-3">Похожие товары</h5>
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    {% for related in related_products %}
+      <div class="col">
+        <div class="card h-100 text-center" style="max-width: 180px; margin: auto;">
+          <img src="{{ related.cover.url }}" class="card-img-top" alt="{{ related.title }}" style="height: 180px; object-fit: cover;">
+          <div class="card-body">
+            <h6 class="card-title">{{ related.title }}</h6>
+            <p class="fw-bold">${{ related.price }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

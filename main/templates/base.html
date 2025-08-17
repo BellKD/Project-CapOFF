@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CapOFF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{% static 'assets/img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+
+    <style>
+        /* Увеличенное лого */
+        .navbar-brand {
+            font-size: 3rem !important;   /* крупнее */
+            font-weight: bold !important;
+            letter-spacing: 2px;
+        }
+
+        /* Ссылка Искать с нижней линией */
+        .nav-link.search-link {
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Transparent Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-none border-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            <!-- Логотип слева -->
+            <!-- Логотип слева -->
+        <a class="navbar-brand text-dark m-0" href="{% url 'index' %}">Cap<br>OFF</a>
+
+            <!-- Ссылки справа -->
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-dark text-uppercase small search-link" href="#">Искать</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-dark text-uppercase small" href="#">Аккаунт</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-dark text-uppercase small" href="#">Корзина [0]</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <main class="pt-5 mt-5">
+        {% block content %}{% endblock %}
+    </main>
+
+
+
+
+<footer class="zara-footer mt-auto">
+  <div class="footer-subscribe text-center mb-4">
+    <p class="mb-2">Подпишитесь на рассылку</p>
+    <form class="footer-form d-inline-flex">
+      <input type="email" class="form-control rounded-0" placeholder="Ваш e-mail" style="max-width: 250px; border: none; border-bottom: 1px solid #000; outline: none;">
+      <button type="submit" class="btn btn-link text-dark ms-2 p-0" style="font-size: 1.2rem;">→</button>
+    </form>
+  </div>
+
+  <div class="footer-social text-center mb-3">
+    <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="text-dark mx-2"><i class="fab fa-x-twitter"></i></a>
+  </div>
+
+  <div class="footer-legal text-center small text-muted">
+    <a href="#" class="text-muted text-decoration-none">Cookies</a>
+    <span class="mx-1">·</span>
+    <a href="#" class="text-muted text-decoration-none">Политика конфиденциальности</a>
+    <span class="mx-1">·</span>
+    <a href="#" class="text-muted text-decoration-none">Условия использования</a>
+  </div>
+</footer>
+
+
+
+
+
+<style>
+.zara-footer {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 40px 20px;
+}
+.footer-subscribe p {
+  margin-bottom: 8px;
+}
+.footer-form {
+  display: inline-flex;
+  border-bottom: 1px solid #222;
+}
+.footer-form input {
+  border: none;
+  padding: 4px 8px;
+  outline: none;
+}
+.footer-form button {
+  background: none;
+  border: none;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.footer-social {
+  margin: 24px 0;
+}
+.footer-social a {
+  color: #222;
+  margin: 0 8px;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+.footer-legal a {
+  color: #444;
+  text-decoration: none;
+  margin: 0 4px;
+}
+.footer-legal span {
+  color: #444;
+}
+.footer-legal {
+  margin-top: 16px;
+}
+</style>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/templatemo.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
