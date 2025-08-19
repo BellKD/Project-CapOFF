@@ -1,5 +1,6 @@
 from django.db import models
 from .constants import NULLABLE
+from django.conf import settings
 
 class Category(models.Model):
     title = models.CharField(max_length=200)
@@ -59,3 +60,41 @@ class Banner(models.Model):
 
     def __str__(self):
         return self.title
+
+class Basket(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="basket")
+    product = models.ForeignKey("Product", on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.product.title} ({self.quantity})"
+
+class Favorite(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="favorites")
+    product = models.ForeignKey("Product", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.email} → {self.product.title}"
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="favorites"
+    )
+    product = models.ForeignKey(
+        "Product",
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f"{self.user} -> {self.product.title}"
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+

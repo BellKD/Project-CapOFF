@@ -1,0 +1,1441 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "banner"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "brand"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "size"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "productimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "main",
+    "model": "storage"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "obr0royrefmg60l0quwt6kmjna3klf0d",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RCgdAGP3n0DgWWRqoGktCfj35WkB73OTObFfNi34vdOq18SO7OJnX5ZDPigOkS6h3prHFvd1iXykfDDdn5tiZ6Xo_0blNDL2JJEpRVopwxGEuBytsZCltM8odY2KIrCWC3AQAInI6JK-dubWWaU7P0BxTc3KA:1unmFq:Zzo4-TpzN16Wb6l9wSJKZvjt5rJkPqm1x5fkQMlOXCg",
+    "expire_date": "2025-08-31T22:53:34.202Z"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 1,
+  "fields": {
+    "title": "Бестселлеры"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 2,
+  "fields": {
+    "title": "Акции"
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 1,
+  "fields": {
+    "title": "Nike",
+    "logo": "brands/logo_nike1_8lcrdCq.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 2,
+  "fields": {
+    "title": "BÄR",
+    "logo": "brands/logo_bar_BVeKY94.jpeg",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 3,
+  "fields": {
+    "title": "Carhartt",
+    "logo": "brands/logo_carhartt.jpg",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 4,
+  "fields": {
+    "title": "ZARA",
+    "logo": "brands/logo_zara_8qvxfrU.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 5,
+  "fields": {
+    "title": "Lonsdale",
+    "logo": "brands/log_lonsdale_8dKOq71.jpg",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 6,
+  "fields": {
+    "title": "Reebok",
+    "logo": "brands/logo_reebok_ARGTVnU.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 7,
+  "fields": {
+    "title": "Timberland",
+    "logo": "brands/logo_timberland_fLLaaRl.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 8,
+  "fields": {
+    "title": "Adidas",
+    "logo": "brands/adidas_logo_Yd5PVaC.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.brand",
+  "pk": 9,
+  "fields": {
+    "title": "Brixton",
+    "logo": "brands/brixton_logo_yraJJ8A.png",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 1,
+  "fields": {
+    "title": "Adidas",
+    "category": 1,
+    "cover": "products/adidas_2.jpeg",
+    "description": "Чистая, стильная и удобная — эта бейсболка adidas adicolor не оставляет желать лучшего. Изготовленная из мягкого и прочного хлопкового твила, она становится всё комфортнее с каждой одеждой. Классический трилистник спереди добавит спортивного акцента вашему образу.",
+    "price": "30.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T22:58:29.665Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 2,
+  "fields": {
+    "title": "Brixton",
+    "category": 1,
+    "cover": "products/brixton_1_XEMD5Gk.jpg",
+    "description": "Эта кепка вдохновлена третьей формой клуба и украшена вышитой спереди эмблемой прошлого года. Эта кепка изготовлена из мягкого хлопкового твила и оснащена застёжкой на пряжке для идеальной посадки.",
+    "price": "40.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T22:59:31.601Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 3,
+  "fields": {
+    "title": "Nike",
+    "category": 1,
+    "cover": "products/nike_1.jpeg",
+    "description": "Эта неструктурированная кепка средней длины выполнена из усовершенствованной влагоотводящей ткани, которая обеспечит свежесть и комфорт на протяжении всего матча. Кроме того, она отлично дышит, когда игра становится жаркой.",
+    "price": "25.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:01:01.099Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 4,
+  "fields": {
+    "title": "Carthartt",
+    "category": 1,
+    "cover": "products/carhartt_sale_1.webp",
+    "description": "Кепка Carhartt – это неструктурированная модель из шести панелей, сшитая из хлопкового твила средней плотности. Она имеет подкладку спереди и твердый изогнутый козырек. Спереди вышита графика.",
+    "price": "40.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:02:32.233Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 5,
+  "fields": {
+    "title": "ZARA",
+    "category": 1,
+    "cover": "products/zara_3_XHjBv02.jpg",
+    "description": "Бейсболка с шестью вставками и козырьком из хлопчатобумажной ткани. Вышивка контрастного цвета с принтами спереди. Регулируемая задняя часть.",
+    "price": "38.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:04:14.521Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 6,
+  "fields": {
+    "title": "ZARA",
+    "category": 2,
+    "cover": "products/zara_4_uMjhQyI.jpg",
+    "description": "Кепка из хлопчатобумажной ткани. Контрастный принт спереди. Вымытый вид. Регулируемая задняя часть.",
+    "price": "27.00",
+    "discount_price": "14.00",
+    "created_at": "2025-08-17T23:04:59.323Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 7,
+  "fields": {
+    "title": "Lonsdale",
+    "category": 1,
+    "cover": "products/Lonsdale_sale_1_w4jleBv.webp",
+    "description": "Предварительно выстиранная кепка Carhartt Work in Progress Madison Logo подходит для окружности головы 57–62 см / 22,4–24,4 дюйма. Она состоит из шести панелей и может быть персонализирована с помощью ремешка и металлической пряжки.",
+    "price": "50.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:06:08.523Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 8,
+  "fields": {
+    "title": "Reebok",
+    "category": 1,
+    "cover": "products/reebok_1_RuNhzVy.webp",
+    "description": "В спортзале или просто на отдыхе поддерживайте классический образ в этой кепке Reebok. Она выполнена из мягкого хлопкового твила с вышитым спереди логотипом Vector. Влагоотводящая повязка сохраняет лицо сухим во время тренировки.",
+    "price": "34.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:07:26.953Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 9,
+  "fields": {
+    "title": "Timberland",
+    "category": 1,
+    "cover": "products/timberland_1_QRAKxL1.avif",
+    "description": "Энзимная стирка на нашей бейсболке Cooper Hill создаёт эффект потёртости. Она дополнена повязкой с антибактериальной обработкой для предотвращения запаха и логотипом Timberland.",
+    "price": "25.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:08:31.405Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 10,
+  "fields": {
+    "title": "Watts",
+    "category": 1,
+    "cover": "products/watts_1.webp",
+    "description": "Добавьте ярких красок в свой образ с кепкой Blue Pepper . Её простой дизайн, дополненный эффектом выцветания, создаёт одновременно элегантный и повседневный стиль. Изготовленная из мягкой и лёгкой хлопковой ткани, кепка настолько удобна, что вы захотите носить её каждый день.",
+    "price": "50.00",
+    "discount_price": null,
+    "created_at": "2025-08-17T23:10:44.710Z",
+    "is_active": true
+  }
+},
+{
+  "model": "main.product",
+  "pk": 11,
+  "fields": {
+    "title": "BÄR",
+    "category": 2,
+    "cover": "products/bar_1_vazMCfP.webp",
+    "description": "Материалы: 100% хлопок\r\nНеструктурированная форма (для получения дополнительной информации см. раздел FAQ)\r\nРегулируемый хлопковый ремешок в качестве застежки.\r\nВысококачественная вышивка (только если вышивка присутствует на лицевой стороне)",
+    "price": "40.00",
+    "discount_price": "20.00",
+    "created_at": "2025-08-17T23:12:10.855Z",
+    "is_active": true
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add banner",
+    "content_type": [
+      "main",
+      "banner"
+    ],
+    "codename": "add_banner"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change banner",
+    "content_type": [
+      "main",
+      "banner"
+    ],
+    "codename": "change_banner"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete banner",
+    "content_type": [
+      "main",
+      "banner"
+    ],
+    "codename": "delete_banner"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view banner",
+    "content_type": [
+      "main",
+      "banner"
+    ],
+    "codename": "view_banner"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add brand",
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "codename": "add_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change brand",
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "codename": "change_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete brand",
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "codename": "delete_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view brand",
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "codename": "view_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add category",
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change category",
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete category",
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view category",
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add size",
+    "content_type": [
+      "main",
+      "size"
+    ],
+    "codename": "add_size"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change size",
+    "content_type": [
+      "main",
+      "size"
+    ],
+    "codename": "change_size"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete size",
+    "content_type": [
+      "main",
+      "size"
+    ],
+    "codename": "delete_size"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view size",
+    "content_type": [
+      "main",
+      "size"
+    ],
+    "codename": "view_size"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add product",
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change product",
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete product",
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view product",
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add product image",
+    "content_type": [
+      "main",
+      "productimage"
+    ],
+    "codename": "add_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change product image",
+    "content_type": [
+      "main",
+      "productimage"
+    ],
+    "codename": "change_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete product image",
+    "content_type": [
+      "main",
+      "productimage"
+    ],
+    "codename": "delete_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view product image",
+    "content_type": [
+      "main",
+      "productimage"
+    ],
+    "codename": "view_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add storage",
+    "content_type": [
+      "main",
+      "storage"
+    ],
+    "codename": "add_storage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change storage",
+    "content_type": [
+      "main",
+      "storage"
+    ],
+    "codename": "change_storage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete storage",
+    "content_type": [
+      "main",
+      "storage"
+    ],
+    "codename": "delete_storage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view storage",
+    "content_type": [
+      "main",
+      "storage"
+    ],
+    "codename": "view_storage"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$rQYVLFkPgoXY5J1oqyMsPL$v+IBBD1hP/mHE5pNeZ5BeacDc6x/w1Ep9kaMwa6ZoRc=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "Bella",
+    "first_name": "",
+    "last_name": "",
+    "email": "bellenieve@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-08-17T22:39:18.430Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$AuQDocVjNQuPz0i4b1asZs$xUZDYkwTTL3HuMjknlnQ87uuYZWYUFILWvNGdM68HLU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "water",
+    "first_name": "",
+    "last_name": "",
+    "email": "water@water.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-17T22:45:40.022Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$fcpVwVTcyx5smto1Hdo8IX$5b5fsFy3P1WwUw3AQKIt3C4WoLuingheFAHaNmISl8g=",
+    "last_login": "2025-08-17T22:53:34.201Z",
+    "is_superuser": true,
+    "username": "Admin123",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-08-17T22:52:14.835Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-08-17T22:53:56.118Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "Бестселлеры",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-08-17T22:54:01.759Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "Акции",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-08-17T22:58:29.666Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Adidas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-08-17T22:59:31.618Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "Brixton",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-08-17T23:01:01.101Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "3",
+    "object_repr": "Nike",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-08-17T23:02:32.235Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Carthartt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-08-17T23:04:14.522Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "ZARA",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-08-17T23:04:59.325Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "ZARA",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-08-17T23:06:08.525Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "7",
+    "object_repr": "Lonsdale",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-08-17T23:07:26.954Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Reebok",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-08-17T23:08:31.407Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "9",
+    "object_repr": "Timberland",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-08-17T23:10:44.712Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "10",
+    "object_repr": "Watts",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-08-17T23:12:10.857Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "BÄR",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-08-17T23:12:36.989Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "1",
+    "object_repr": "Nike",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-08-17T23:12:49.687Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "2",
+    "object_repr": "BÄR",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-08-17T23:13:07.336Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "3",
+    "object_repr": "Carhartt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-08-17T23:13:20.638Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "4",
+    "object_repr": "ZARA",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-08-17T23:13:45.135Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "5",
+    "object_repr": "Lonsdale",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-08-17T23:14:00.057Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "6",
+    "object_repr": "Reebok",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-08-17T23:14:11.651Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "7",
+    "object_repr": "Timberland",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-08-17T23:14:25.333Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "8",
+    "object_repr": "Adidas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-08-17T23:14:38.567Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "brand"
+    ],
+    "object_id": "9",
+    "object_repr": "Brixton",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-08-17T23:16:03.630Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "BÄR",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Discount price\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-08-17T23:16:11.965Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "ZARA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Discount price\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-08-17T23:16:27.963Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "ZARA",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-08-17T23:16:34.030Z",
+    "user": [
+      "Admin123"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "BÄR",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+  }
+}
+]

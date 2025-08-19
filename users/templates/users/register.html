@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="max-width: 400px; margin: 0 auto; text-align: center;">
+    <h2 style="font-weight: 400; margin-bottom: 20px;">Регистрация</h2>
+
+    <form method="post" action="{% url 'register' %}" class="register-form">
+        {% csrf_token %}
+
+        <!-- Email -->
+        <input type="email" name="email" placeholder="Email" required
+               style="width: 100%; margin-bottom: 15px; padding: 10px;
+                      border: none; border-bottom: 1px solid #000; font-size: 14px;">
+
+        <!-- Пароль -->
+        <input type="password" name="password1" placeholder="Пароль" required
+               style="width: 100%; margin-bottom: 5px; padding: 10px;
+                      border: none; border-bottom: 1px solid #000; font-size: 14px;">
+        <small style="display:block; font-size: 12px; color: #666; margin-bottom: 15px; text-align:left;">
+            Пароль должен содержать минимум 8 символов, хотя бы одну заглавную букву, одну цифру и один спецсимвол.
+        </small>
+
+        <!-- Повторите пароль -->
+        <input type="password" name="password2" placeholder="Повторите пароль" required
+               style="width: 100%; margin-bottom: 20px; padding: 10px;
+                      border: none; border-bottom: 1px solid #000; font-size: 14px;">
+
+        <!-- Кнопка -->
+        <button type="submit"
+                style="width: 100%; background: #000; color: #fff; padding: 12px;
+                       border: none; cursor: pointer; font-size: 14px;">
+            Зарегистрироваться
+        </button>
+    </form>
+
+    <p style="margin-top: 15px; font-size: 14px;">
+        Уже есть аккаунт?
+        <a href="{% url 'login' %}" style="color: #000; text-decoration: underline;">Войти</a>
+    </p>
+</div>
+{% endblock %}
