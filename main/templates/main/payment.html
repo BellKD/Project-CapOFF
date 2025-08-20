@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h3 class="fw-bold mb-4">Выберите способ оплаты</h3>
+
+    <div class="row justify-content-center g-4">
+        <!-- Карта -->
+        <div class="col-md-3">
+            <div class="card p-3 border-0 shadow-sm h-100">
+                <img src="{% static 'assets/img/VISA.jpg' %}" class="card-img-top mx-auto" style="max-height: 100px; object-fit: contain;" alt="Card">
+                <div class="card-body">
+                    <h6 class="fw-bold">Кредит / Дебет карта</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apple Pay -->
+        <div class="col-md-3">
+            <div class="card p-3 border-0 shadow-sm h-100">
+                <img src="{% static 'assets/img/applepay.jpg' %}" class="card-img-top mx-auto" style="max-height: 100px; object-fit: contain;" alt="Apple Pay">
+                <div class="card-body">
+                    <h6 class="fw-bold">Apple Pay</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- PayPal -->
+        <div class="col-md-3">
+            <div class="card p-3 border-0 shadow-sm h-100">
+                <img src="{% static 'assets/img/paypal.jpg' %}" class="card-img-top mx-auto" style="max-height: 100px; object-fit: contain;" alt="PayPal">
+                <div class="card-body">
+                    <h6 class="fw-bold">PayPal</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gift Card -->
+        <div class="col-md-3">
+            <div class="card p-3 border-0 shadow-sm h-100">
+                <img src="{% static 'assets/img/giftcard.jpg' %}" class="card-img-top mx-auto" style="max-height: 100px; object-fit: contain;" alt="Gift Card">
+                <div class="card-body">
+                    <h6 class="fw-bold">Подарочная карта</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка -->
+    <div class="mt-5">
+        <button class="btn btn-dark btn-lg px-5">Завершить оплату</button>
+    </div>
+</div>
+{% endblock %}

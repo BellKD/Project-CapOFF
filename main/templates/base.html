@@ -19,7 +19,7 @@
     <style>
         /* Увеличенное лого */
         .navbar-brand {
-            font-size: 3rem !important;   /* крупнее */
+            font-size: 3rem !important;
             font-weight: bold !important;
             letter-spacing: 2px;
         }
@@ -29,163 +29,204 @@
             border-bottom: 1px solid #000;
             padding-bottom: 2px;
         }
+
+        /* Sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Transparent Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-none border-0">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-
-            <!-- Логотип слева -->
-            <a class="navbar-brand text-dark m-0" href="{% url 'index' %}">Cap<br>OFF</a>
-
-            <!-- Ссылки справа -->
-            <div class="d-flex justify-content-end">
-                <ul class="navbar-nav flex-row">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-dark text-uppercase small search-link" href="#">Искать</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        {% if user.is_authenticated %}
-                            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="nav-link text-dark text-uppercase small btn btn-link p-0 m-0">
-                                    Аккаунт
-                                </button>
-                            </form>
-                        {% else %}
-                            <a class="nav-link text-dark text-uppercase small" href="{% url 'login' %}">Аккаунт</a>
-                        {% endif %}
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-dark text-uppercase small" href="#">
-                            Корзина [{% if user.is_authenticated %}{{ user.basket_set.count }}{% else %}0{% endif %}]
-                        </a>
-                    </li>
-                </ul>
+<!-- Flash messages -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow" role="alert"
+                 style="min-width: 250px; font-size: 0.9rem;">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
             </div>
+        {% endfor %}
+    {% endif %}
+</div>
 
-        </div>
-    </nav>
-    <!-- End Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-none border-0">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <main class="pt-5 mt-5">
-        {% block content %}{% endblock %}
-    </main>
+        <!-- Логотип -->
+        <a class="navbar-brand text-dark fw-bold" href="{% url 'index' %}"
+           style="font-size: 3rem; letter-spacing: 2px; line-height: 1;">
+            Cap<br>OFF
+        </a>
 
-    <footer class="zara-footer mt-auto">
-        <div class="footer-subscribe text-center mb-4">
-            <p class="mb-2">Подпишитесь на рассылку</p>
-            <form id="subscribe-form" class="footer-form d-inline-flex" method="post" action="{% url 'subscribe' %}">
-                {% csrf_token %}
-                <input type="email" name="email" class="form-control rounded-0"
-                       placeholder="Ваш e-mail"
-                       style="max-width: 250px; border: none; border-bottom: 1px solid #000; outline: none;" required>
-                <button type="submit" class="btn btn-link text-dark ms-2 p-0" style="font-size: 1.2rem;">→</button>
-            </form>
-            <!-- Сообщение -->
-            <div id="subscribe-message" class="mt-2 text-center small"></div>
-        </div>
+        <!-- Ссылки справа -->
+        <ul class="navbar-nav flex-row align-items-center">
+            <li class="nav-item mx-3 dropdown">
+                <a class="nav-link dropdown-toggle text-dark text-uppercase small search-link"
+                   href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Искать
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="searchDropdown">
+                    <li><a class="dropdown-item" href="{% url 'search' %}?filter=popular">Популярные</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search' %}?filter=new">Новинки</a></li>
+                </ul>
+            </li>
+            <li class="nav-item mx-3">
+                {% if user.is_authenticated %}
+                    <a class="nav-link text-dark text-uppercase small" href="{% url 'profile' %}">Аккаунт</a>
+                {% else %}
+                    <a class="nav-link text-dark text-uppercase small" href="{% url 'login' %}">Аккаунт</a>
+                {% endif %}
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link text-dark text-uppercase small" href="{% url 'basket' %}">
+                    Корзина [{{ basket_count }}]
+                </a>
+            </li>
+        </ul>
 
-        <div class="footer-social text-center mb-3">
-            <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-dark mx-2"><i class="fab fa-x-twitter"></i></a>
-        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
 
-        <div class="footer-legal text-center small text-muted">
-            <a href="#" class="text-muted text-decoration-none">Cookies</a>
-            <span class="mx-1">·</span>
-            <a href="#" class="text-muted text-decoration-none">Политика конфиденциальности</a>
-            <span class="mx-1">·</span>
-            <a href="#" class="text-muted text-decoration-none">Условия использования</a>
-        </div>
-    </footer>
+<main class="pt-5 mt-5">
+    {% block content %}{% endblock %}
+</main>
 
-    <style>
-    .zara-footer {
-      background: #fff;
-      color: #222;
-      text-align: center;
-      font-size: 0.875rem;
-      padding: 40px 20px;
-    }
-    .footer-subscribe p {
-      margin-bottom: 8px;
-    }
-    .footer-form {
-      display: inline-flex;
-      border-bottom: 1px solid #222;
-    }
-    .footer-form input {
-      border: none;
-      padding: 4px 8px;
-      outline: none;
-    }
-    .footer-form button {
-      background: none;
-      border: none;
-      padding: 0 8px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .footer-social {
-      margin: 24px 0;
-    }
-    .footer-social a {
-      color: #222;
-      margin: 0 8px;
-      font-size: 1.25rem;
-      text-decoration: none;
-    }
-    .footer-legal a {
-      color: #444;
-      text-decoration: none;
-      margin: 0 4px;
-    }
-    .footer-legal span {
-      color: #444;
-    }
-    .footer-legal {
-      margin-top: 16px;
-    }
-    </style>
+<footer class="zara-footer">
+    <div class="footer-subscribe text-center mb-4">
+        <p class="mb-2">Подпишитесь на рассылку</p>
+        <form id="subscribe-form" class="footer-form d-inline-flex" method="post" action="{% url 'subscribe' %}">
+            {% csrf_token %}
+            <input type="email" name="email" class="form-control rounded-0"
+                   placeholder="Ваш e-mail"
+                   style="max-width: 250px; border: none; border-bottom: 1px solid #000; outline: none;" required>
+            <button type="submit" class="btn btn-link text-dark ms-2 p-0" style="font-size: 1.2rem;">→</button>
+        </form>
+        <div id="subscribe-message" class="mt-2 text-center small"></div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery-migrate-1.2.1.min.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/templatemo.js' %}"></script>
-    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <div class="footer-social text-center mb-3">
+        <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-dark mx-2"><i class="fab fa-x-twitter"></i></a>
+    </div>
 
-    <!-- AJAX для подписки -->
-    <script>
-    document.getElementById("subscribe-form").addEventListener("submit", function(e) {
-        e.preventDefault();  // отменяем перезагрузку
-        let form = e.target;
-        let data = new FormData(form);
+    <div class="footer-legal text-center small text-muted">
+        <a href="#" class="text-muted text-decoration-none">Cookies</a>
+        <span class="mx-1">·</span>
+        <a href="#" class="text-muted text-decoration-none">Политика конфиденциальности</a>
+        <span class="mx-1">·</span>
+        <a href="#" class="text-muted text-decoration-none">Условия использования</a>
+    </div>
+</footer>
 
-        fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: {
-                "X-Requested-With": "XMLHttpRequest"
-            }
-        })
-        .then(response => response.json())
-        .then(result => {
-            let msg = document.getElementById("subscribe-message");
-            msg.innerText = result.message;
-            msg.style.color = result.status === "success" ? "green" : "red";
-            form.reset();
-        })
-        .catch(() => {
-            let msg = document.getElementById("subscribe-message");
-            msg.innerText = "Ошибка, попробуйте позже.";
-            msg.style.color = "red";
-        });
+<style>
+.zara-footer {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 40px 20px;
+}
+.footer-subscribe p {
+  margin-bottom: 8px;
+}
+.footer-form {
+  display: inline-flex;
+  border-bottom: 1px solid #222;
+}
+.footer-form input {
+  border: none;
+  padding: 4px 8px;
+  outline: none;
+}
+.footer-form button {
+  background: none;
+  border: none;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.footer-social {
+  margin: 24px 0;
+}
+.footer-social a {
+  color: #222;
+  margin: 0 8px;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+.footer-legal a {
+  color: #444;
+  text-decoration: none;
+  margin: 0 4px;
+}
+.footer-legal span {
+  color: #444;
+}
+.footer-legal {
+  margin-top: 16px;
+}
+</style>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery-migrate-1.2.1.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/templatemo.js' %}"></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let alerts = document.querySelectorAll(".alert");
+    alerts.forEach(function(alert) {
+      setTimeout(function () {
+        let bsAlert = new bootstrap.Alert(alert);
+        bsAlert.close();
+      }, 4000);
     });
-    </script>
+  });
+</script>
+
+<!-- AJAX подписка -->
+<script>
+document.getElementById("subscribe-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let form = e.target;
+    let data = new FormData(form);
+
+    fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {"X-Requested-With": "XMLHttpRequest"}
+    })
+    .then(response => response.json())
+    .then(result => {
+        let msg = document.getElementById("subscribe-message");
+        msg.innerText = result.message;
+        msg.style.color = result.status === "success" ? "green" : "red";
+        form.reset();
+    })
+    .catch(() => {
+        let msg = document.getElementById("subscribe-message");
+        msg.innerText = "Ошибка, попробуйте позже.";
+        msg.style.color = "red";
+    });
+});
+</script>
 </body>
 </html>

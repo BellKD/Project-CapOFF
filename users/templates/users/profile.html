@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid mt-5 mb-5 px-5">
+  <div class="row">
+
+    <!-- Сайдбар -->
+    <div class="col-md-2">
+      <nav class="profile-menu">
+        <a href="{% url 'profile_section' 'orders' %}" class="profile-item {% if section == 'orders' %}active{% endif %}">Заказы</a>
+        <a href="{% url 'profile_section' 'notifications' %}" class="profile-item {% if section == 'notifications' %}active{% endif %}">Уведомления</a>
+        <a href="{% url 'profile_section' 'payments' %}" class="profile-item {% if section == 'payments' %}active{% endif %}">Методы оплаты</a>
+        <a href="{% url 'profile_section' 'profile' %}" class="profile-item {% if section == 'profile' %}active{% endif %}">Профиль</a>
+        <a href="{% url 'profile_section' 'settings' %}" class="profile-item {% if section == 'settings' %}active{% endif %}">Настройки</a>
+        <a href="{% url 'profile_section' 'saved' %}" class="profile-item {% if section == 'saved' %}active{% endif %}">Сохранённые</a>
+      </nav>
+    </div>
+
+    <!-- Контент -->
+    <div class="col-md-10">
+
+      {% if section == "profile" %}
+        <!-- Заголовок -->
+        <h5 class="fw-bold mb-4">{{ user.email }}</h5>
+
+        <!-- Блок с данными -->
+        <div class="profile-info">
+          <p class="label">Электронная почта</p>
+          <p class="value">{{ user.email }}</p>
+
+          <p class="label">Пароль</p>
+          <p class="value">••••••••••</p>
+        </div>
+
+        <!-- Кнопка выйти -->
+        <form action="{% url 'logout' %}" method="post" class="mt-4">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-dark w-25">Выйти</button>
+        </form>
+
+        <!-- Удалить профиль -->
+        <form action="{% url 'delete_profile' %}" method="post" class="mt-5">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-link text-dark p-0">Удалить профиль</button>
+        </form>
+
+      {% elif section == "orders" %}
+        <h5 class="fw-bold mb-3">Ваши заказы</h5>
+        <p class="text-muted">Здесь будет список заказов.</p>
+
+      {% elif section == "notifications" %}
+        <h5 class="fw-bold mb-3">Уведомления</h5>
+        <p class="text-muted">Здесь будут уведомления.</p>
+
+      {% elif section == "payments" %}
+        <h5 class="fw-bold mb-3">Методы оплаты</h5>
+        <p class="text-muted">Здесь будут сохранённые карты.</p>
+
+      {% elif section == "settings" %}
+        <h5 class="fw-bold mb-3">Настройки</h5>
+        <p class="text-muted">Здесь будут настройки аккаунта.</p>
+
+      {% elif section == "saved" %}
+        <h5 class="fw-bold mb-3">Сохранённые товары</h5>
+        {% if saved_products %}
+          <div class="row g-4">
+            {% for product in saved_products %}
+              <div class="col-12 col-md-4">
+                <div class="card border-0 h-100">
+                  <a href="{% url 'product_detail' product.id %}" class="text-decoration-none text-dark">
+                    <img src="{{ product.cover.url }}" class="card-img-top rounded-0" alt="{{ product.title }}">
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-uppercase fw-semibold mb-1">{{ product.title }}</h6>
+                      <p class="card-text text-muted">{{ product.price }} ₸</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted">У вас пока нет сохранённых товаров.</p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+/* Сайдбар Zara */
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-item {
+  text-decoration: none;
+  color: #222;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.profile-item:hover {
+  color: #000;
+}
+
+.profile-item.active {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Инфо блок */
+.profile-info {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  row-gap: 10px;
+}
+
+.profile-info .label {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.profile-info .value {
+  font-size: 0.95rem;
+  margin: 0;
+}
+</style>
+{% endblock %}

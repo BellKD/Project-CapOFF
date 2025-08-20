@@ -2,6 +2,19 @@
 
 {% block content %}
 <div class="container mt-5">
+
+    <!-- Уведомления -->
+    {% if messages %}
+      <div class="messages position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <div class="row">
         <!-- Фото товара -->
         <div class="col-md-6 text-center">
@@ -24,23 +37,22 @@
 
             <p class="mt-2">{{ product.description }}</p>
 
-            <!-- Размеры -->
-            <div class="mt-4">
-                <h6 class="fw-bold">Размеры</h6>
-                <div>
-                    <button class="btn btn-outline-dark btn-sm m-1">S</button>
-                    <button class="btn btn-outline-dark btn-sm m-1">M</button>
-                    <button class="btn btn-outline-dark btn-sm m-1">L</button>
-                </div>
-            </div>
-
-            <!-- Кнопка -->
+            <!-- Форма выбора размера и добавления в корзину -->
             <div class="mt-4">
                 <form action="{% url 'add_to_basket' product.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark fw-bold px-4 py-2">
-                        Добавить в корзину
-                    </button>
+                    <h6 class="fw-bold mb-2">Выберите размер:</h6>
+                    <div class="btn-group" role="group" aria-label="Выбор размера">
+                        {% for storage in product.storage_set.all %}
+                            <input type="radio" class="btn-check" name="size" id="size{{ storage.size.id }}" value="{{ storage.size.id }}" autocomplete="off" {% if forloop.first %}checked{% endif %}>
+                            <label class="btn btn-outline-dark" for="size{{ storage.size.id }}">{{ storage.size.title }}</label>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-dark fw-bold px-4 py-2">
+                            🛒 Добавить в корзину
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

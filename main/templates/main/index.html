@@ -8,15 +8,12 @@
 <div class="brand-marquee py-4 mt-5">
     <div class="marquee d-flex align-items-center">
         {% for brand in brands %}
-        {% endfor %}
-        {% for brand in brands %}
             <div class="mx-5">
                 <img src="{{ brand.logo.url }}" alt="{{ brand.title }}" style="height:150px;">
             </div>
         {% endfor %}
     </div>
 </div>
-
 
 
 <!-- Блок Бестселлеры -->
@@ -34,15 +31,20 @@
                         <div class="d-flex justify-content-start gap-3">
                 {% endif %}
 
-                <a href="{% url 'product_detail' product.id %}" class="text-decoration-none text-dark">
-                    <div class="card product-card">
+                <div class="card product-card">
+                    <div class="position-relative">
                         <img src="{{ product.cover.url }}" class="card-img-top" alt="{{ product.title }}">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">{{ product.title }}</h6>
-                            <p class="fw-bold">${{ product.price }}</p>
-                        </div>
+                        <!-- Кнопка сохранить -->
+                        <button class="btn fav-btn position-absolute top-0 end-0 m-2 p-1"
+                                data-id="{{ product.id }}">
+                            <i class="far fa-bookmark"></i>
+                        </button>
                     </div>
-                </a>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{ product.title }}</h6>
+                        <p class="fw-bold">${{ product.price }}</p>
+                    </div>
+                </div>
 
                 {% if forloop.counter|divisibleby:5 or forloop.last %}
                         </div>
@@ -60,8 +62,6 @@
 </div>
 
 
-
-
 <!-- Блок Акции -->
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -77,21 +77,26 @@
                         <div class="d-flex justify-content-start gap-3">
                 {% endif %}
 
-                <a href="{% url 'product_detail' product.id %}" class="text-decoration-none text-dark">
-                    <div class="card product-card">
+                <div class="card product-card">
+                    <div class="position-relative">
                         <img src="{{ product.cover.url }}" class="card-img-top" alt="{{ product.title }}">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">{{ product.title }}</h6>
-
-                            {% if product.discount_price %}
-                                <small class="text-muted text-decoration-line-through">${{ product.price }}</small><br>
-                                <span class="fw-bold text-danger">${{ product.discount_price }}</span>
-                            {% else %}
-                                <p class="fw-bold">${{ product.price }}</p>
-                            {% endif %}
-                        </div>
+                        <!-- Кнопка сохранить -->
+                        <button class="btn fav-btn position-absolute top-0 end-0 m-2 p-1"
+                                data-id="{{ product.id }}">
+                            <i class="far fa-bookmark"></i>
+                        </button>
                     </div>
-                </a>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{ product.title }}</h6>
+
+                        {% if product.discount_price %}
+                            <small class="text-muted text-decoration-line-through">${{ product.price }}</small><br>
+                            <span class="fw-bold text-danger">${{ product.discount_price }}</span>
+                        {% else %}
+                            <p class="fw-bold">${{ product.price }}</p>
+                        {% endif %}
+                    </div>
+                </div>
 
                 {% if forloop.counter|divisibleby:5 or forloop.last %}
                         </div>
@@ -109,7 +114,50 @@
 </div>
 
 
+<!-- Блок Новинки -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold">Новинки</h4>
+        <a href="{% url 'search' %}?filter=new" class="fw-bold text-dark">Смотреть все</a>
+    </div>
 
+    <div id="newCarousel" class="carousel slide" data-bs-interval="false">
+        <div class="carousel-inner">
+            {% for product in new_products %}
+                {% if forloop.counter0|divisibleby:5 %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="d-flex justify-content-start gap-3">
+                {% endif %}
+
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="{{ product.cover.url }}" class="card-img-top" alt="{{ product.title }}">
+                        <!-- Кнопка сохранить -->
+                        <button class="btn fav-btn position-absolute top-0 end-0 m-2 p-1"
+                                data-id="{{ product.id }}">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{ product.title }}</h6>
+                        <p class="fw-bold">${{ product.price }}</p>
+                    </div>
+                </div>
+
+                {% if forloop.counter|divisibleby:5 or forloop.last %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
+            <span aria-hidden="true">←</span>
+        </button>
+        <button class="carousel-control-next custom-next" type="button" data-bs-target="#newCarousel" data-bs-slide="next">
+            <span aria-hidden="true">→</span>
+        </button>
+    </div>
+</div>
 
 
 <style>
@@ -137,13 +185,36 @@
 
 /* Карточки товаров */
 .product-card {
-    width: 240px;        /* ширина карточки */
-    min-height: 320px;   /* одинаковая высота */
-    margin: 0 5px;       /* регулируемый зазор */
+    width: 240px;
+    min-height: 560px;
+    margin: 0 4px;
+    border: none !important;
+    box-shadow: none !important;
 }
 .product-card img {
-    height: 200px;
+    height: 260px;
     object-fit: cover;
+}
+
+/* Кнопка сохранить */
+.fav-btn {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0;
+}
+.fav-btn i {
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.2s ease;
+}
+.fav-btn.active i {
+    color: black; /* сохранённое состояние — чёрный */
+    font-weight: bold;
+}
+.fav-btn:hover i {
+    color: gray;
 }
 
 /* Кастомные стрелки */
@@ -160,12 +231,36 @@
 
 .carousel-control-prev.custom-prev,
 .carousel-control-next.custom-next {
-    opacity: 1 !important;   /* всегда видимы */
-    color: black !important; /* цвет стрелок */
+    opacity: 1 !important;
+    color: black !important;
 }
-
 </style>
 
+
+<!-- JS для избранного -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const favButtons = document.querySelectorAll(".fav-btn");
+    favButtons.forEach(btn => {
+        btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const productId = this.getAttribute("data-id");
+            fetch(`/api/favorite/add/${productId}/`, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                this.classList.toggle("active");
+            });
+        });
+    });
+});
+</script>
 
 <br><br><br><br>
 {% endblock %}

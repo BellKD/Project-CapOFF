@@ -36,7 +36,10 @@ urlpatterns = [
              redirect_authenticated_user=True
          ),
          name="login"),
-    path("logout/", auth_views.LogoutView.as_view(next_page="index"), name="logout"),
+    path("logout/", auth_views.LogoutView.as_view(next_page="/"), name="logout"),
+    path("api/users/", include("users.urls")),
+
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

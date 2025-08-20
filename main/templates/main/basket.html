@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h3 class="fw-bold mb-4">Ваша корзина</h3>
+
+    <div class="row">
+        <!-- Список товаров -->
+        <div class="col-md-8">
+            <div class="d-flex flex-row overflow-auto pb-3" style="gap: 20px;">
+
+                {% for item in basket_items %}
+                <div class="card shadow-sm border-0" style="min-width: 350px; max-width: 350px;">
+                    <img src="{{ item.product.cover.url }}" class="card-img-top" alt="{{ item.product.title }}" style="height: 400px; object-fit: contain;">
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">{{ item.product.title }}</h6>
+                        <p class="text-muted small">Размер: {{ item.size.title }}</p>
+
+                        <!-- Кол-во -->
+                        <form action="{% url 'basket_update' item.id %}" method="post" class="d-flex justify-content-center align-items-center mb-2">
+                            {% csrf_token %}
+                            <button type="submit" name="action" value="decrease" class="btn btn-outline-dark btn-sm">-</button>
+                            <span class="mx-2">{{ item.quantity }}</span>
+                            <button type="submit" name="action" value="increase" class="btn btn-outline-dark btn-sm">+</button>
+                        </form>
+
+                        <p class="fw-bold mb-2">${{ item.product.price }}</p>
+
+                        <!-- Удалить -->
+                        <form action="{% url 'basket_remove' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>Корзина пуста.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Блок "Итого" -->
+        <div class="col-md-4">
+            <div class="border p-4">
+                <h5 class="fw-bold">Итого</h5>
+                <p>Товаров: {{ basket_items|length }}</p>
+                <p class="h5 fw-bold">
+                    $ {{ total_price }}
+                </p>
+                <a href="{% url 'checkout' %}" class="btn btn-dark w-100 mt-3">
+                    Перейти к оформлению
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
